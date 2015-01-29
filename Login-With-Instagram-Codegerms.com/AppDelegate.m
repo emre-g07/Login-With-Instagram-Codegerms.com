@@ -13,10 +13,21 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize navigation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    MainViewController *controller = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
+    
+    navigation = [[UINavigationController alloc]initWithRootViewController:controller];
+    
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [self.window setRootViewController:self.navigation];
+    
+    [self.window makeKeyAndVisible];
+
+
     return YES;
 }
 
